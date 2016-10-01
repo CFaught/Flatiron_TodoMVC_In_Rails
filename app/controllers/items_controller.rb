@@ -18,6 +18,15 @@ class ItemsController < ApplicationController
     redirect_to list_path(@list)
   end
 
+  # DELETE - /lists/:list_id/items/:id
+  def destroy
+    @list = List.find_by(id: params[:list_id])
+    @item = @list.items.find_by(id: params[:id])
+    @item.destroy
+
+    redirect_to list_path(@list)
+  end
+
   private
   def item_params
     params.require(:item).permit(:description, :status)
