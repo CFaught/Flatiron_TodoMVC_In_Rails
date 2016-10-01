@@ -14,8 +14,8 @@
 - create a list
 - show a list
 
-- i need a model
-- i need a controller
+- I need a model
+- I need a controller
 - resource generator!
 
 Does it impact the DB?
@@ -31,6 +31,17 @@ list model
 
 item model
   belongs to a list
+
+Validate lists have names
+Validate items have a description
+
+Toggle checkbox
+
+$(function(){
+  $("input.toggle").on("change", function(){
+    $(this).parents("form").trigger("submit")
+  })
+});
 
 
 # Step Whatever: fix down arrow.

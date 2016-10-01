@@ -11,11 +11,14 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to root_path
     else
+      @lists = List.all
       render :index
     end
   end
 
   def show
+    @list = List.find(params[:id])
+    @item = Item.new
   end
 
   private
